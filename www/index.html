@@ -46,16 +46,18 @@
           showResults(results);
         })
     }
-    function searchLevelLT) {
+
+    function searchLevelLT() {
       let level = parseInt($("#level").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .lessTan("level", level)
+        .lessThan("level", level)
         .fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
+
 
     function showResults(results) {
       // テーブルのヘッダを生成
@@ -89,7 +91,7 @@
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
-  <br>
+    <br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
     <button class="btn" onclick="searchLevel()">Level</button>
   </div>
