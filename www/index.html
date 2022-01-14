@@ -36,38 +36,17 @@
         })
     }
 
-    function searchLevel() {
-      let level = parseInt($("#level").val());
+    function searchType() {
+      let type = $("#type1").val();
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
-        .equalTo("level", level)
+        .equalTo("type1", type)
         .fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchLevelLT() {
-      let level = parseInt($("#level").val());
-      let TestDataClass = ncmb.DataStore(db);
-      TestDataClass
-        .lessThan("level", level)
-        .fetchAll()
-        .then(function(results) {
-          showResults(results);
-        })
-    }
-
-    function searchLevelGT() {
-      let level = parseInt($("#level").val());
-      let TestDataClass = ncmb.DataStore(db);
-      TestDataClass
-        .greaterThan("level", level)
-        .fetchAll()
-        .then(function(results) {
-          showResults(results);
-        })
-    }
 
 
     function showResults(results) {
@@ -93,19 +72,17 @@
   <h1>mBaaS search</h1>
   <div>
     <label for="name">name:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <input id="name" type="text" placeholder="pokemon name">
   </div>
   <div>
-    <label for="level">level:</label>
-    <input id="level" type="number" placeholder="monster level">
+    <label for="type1">type:</label>
+    <input id="type1" type="text" placeholder="pokemon type">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
-    <button class="btn" onclick="searchName()">Name</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
-    <button class="btn" onclick="searchLevel()">Level</button>
-    <button class="btn" onclick="searchLevelGT()">&gt; Level</button>
+    <button class="btn" onclick="searchName()">Name</button>
+    <button class="btn" onclick="searchType()">Type</button>
   </div>
   <div id="message">message area</div>
 </body>
