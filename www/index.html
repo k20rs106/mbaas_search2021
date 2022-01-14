@@ -15,7 +15,7 @@
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
     const db = "p";
 
-    function fetchAll() {
+    function desecndingName() {
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .order("name", false)
@@ -25,7 +25,17 @@
         })
     }
 
-    function DSort() {
+    function ascendingName() {
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass
+        .order("name", true)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
+    function desendingNo() {
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .order("No", false)
@@ -35,7 +45,7 @@
         })
     }
 
-    function ASort() {
+    function ascendingNo() {
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass
         .order("No", true)
@@ -100,10 +110,11 @@
     <input id="type1" type="text" placeholder="pokemon type">
   </div>
   <div id="button">
-    <button class="btn" onclick="fetchAll()">Fetch All</button>
+    <button class="btn" onclick="desecndingName()">name ▼</button>
+    <button class="btn" onclick="ascendingName()">name ▲</button>
     <br>
-    <button class="btn" onclick="DSort()">Descending</button>
-    <button class="btn" onclick="ASort()">Ascending</button>
+    <button class="btn" onclick="desendingNo()">No ▼</button>
+    <button class="btn" onclick="ascendingNo()">No ▲</button>
     <br>
     <button class="btn" onclick="searchName()">Name</button>
     <button class="btn" onclick="searchType()">Type</button>
